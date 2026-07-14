@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 430" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract semiconductor wafer and circuit illustration</title>
+  <desc id="desc">A dark geometric illustration with a glowing wafer, chip traces, and subtle circuit nodes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1722"/>
+      <stop offset="1" stop-color="#142d3d"/>
+    </linearGradient>
+    <radialGradient id="wafer" cx="35%" cy="28%" r="72%">
+      <stop offset="0" stop-color="#bafff8"/>
+      <stop offset=".35" stop-color="#61d3d0"/>
+      <stop offset="1" stop-color="#174d58"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="11" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#61d3d0" stroke-opacity=".08"/></pattern>
+  </defs>
+  <rect width="620" height="430" fill="url(#bg)"/>
+  <rect width="620" height="430" fill="url(#grid)"/>
+  <g fill="none" stroke="#61d3d0" stroke-opacity=".38" stroke-width="2">
+    <path d="M42 80h94l34 34h62"/><path d="M32 322h104l42-42h78"/><path d="M410 72h84l37 37h58"/><path d="M403 345h82l45-45h63"/>
+    <circle cx="42" cy="80" r="5" fill="#61d3d0"/><circle cx="32" cy="322" r="5" fill="#61d3d0"/><circle cx="589" cy="109" r="5" fill="#61d3d0"/><circle cx="593" cy="300" r="5" fill="#61d3d0"/>
+  </g>
+  <g transform="translate(310 214)" filter="url(#glow)">
+    <circle r="126" fill="#071019" stroke="#61d3d0" stroke-opacity=".42" stroke-width="2"/>
+    <circle r="105" fill="url(#wafer)" opacity=".9"/>
+    <path d="M-74-74L74 74M-104-28L28 104M-28-104L104 28M74-74L-74 74M104-28L-28 104M28-104L-104 28" stroke="#071019" stroke-opacity=".36" stroke-width="3"/>
+    <path d="M-108 0H108M0-108V108" stroke="#071019" stroke-opacity=".3" stroke-width="2"/>
+    <path d="M-38 93h76" stroke="#d9fffb" stroke-opacity=".7" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(310 214)">
+    <rect x="-35" y="-35" width="70" height="70" rx="7" fill="#071019" fill-opacity=".82" stroke="#c8fff8" stroke-opacity=".85"/>
+    <path d="M-15-9h30M-15 2h20M-15 13h25" stroke="#61d3d0" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="34" y="398" fill="#a6bbc8" font-family="monospace" font-size="14" letter-spacing="3">DEVICE · DATA · DESIGN</text>
+</svg>
