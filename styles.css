@@ -19,7 +19,7 @@
   --font-mono: "JetBrains Mono", monospace;
 }
 
-html[data-theme="light"] {
+html.portfolio-shell:has(#theme-control:checked), body:has(#theme-control:checked) {
   --bg: #eaf0f4;
   --surface: rgba(255, 255, 255, 0.93);
   --surface-strong: #ffffff;
@@ -233,9 +233,7 @@ img { max-width: 100%; display: block; }
   border-radius: 2px;
   background: transparent;
 }
-.tab-button:hover,
-.tab-button.active { color: var(--text); }
-.tab-button.active::after { background: var(--accent); }
+.tab-button:hover { color: var(--text); }
 .theme-toggle {
   width: 39px;
   height: 39px;
@@ -249,7 +247,6 @@ img { max-width: 100%; display: block; }
 
 .panels { padding: clamp(28px, 4vw, 52px); }
 .tab-panel { animation: panelIn .28s ease; }
-.tab-panel[hidden] { display: none; }
 @keyframes panelIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
 .panel-heading { max-width: 850px; margin-bottom: 30px; }
@@ -337,7 +334,7 @@ img { max-width: 100%; display: block; }
 
 .education-list { display: grid; gap: 16px; }
 .education-card { display: grid; grid-template-columns: 110px 1fr; gap: 25px; padding: 24px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-soft); }
-.education-year { color: var(--accent); font-family: var(--font-mono); font-size: .75rem; text-align: center;}
+.education-year { color: var(--accent); font-family: var(--font-mono); font-size: .75rem; text-align: center}
 .education-card h3 { margin: 0; font-size: 1.05rem; }
 .education-card p { margin: 7px 0 0; color: var(--muted); font-size: .84rem; }
 .education-card .institution { color: var(--accent); }
@@ -398,4 +395,111 @@ img { max-width: 100%; display: block; }
 @media (max-width: 760px) {
   .profile-about { grid-column: 1 / -1; margin-top: 4px; padding-top: 14px; }
   .profile-about p:not(.eyebrow) { font-size: .8rem; }
+}
+
+
+/* =========================================================
+   CSS-only tabs and theme toggle
+   ========================================================= */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.tab-button,
+.theme-toggle {
+  user-select: none;
+}
+
+.tab-button {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Only the selected panel is displayed. */
+.tab-panel {
+  display: none;
+  animation: panelIn .28s ease;
+}
+
+#tab-overview:checked ~ .content-card .panel-overview,
+#tab-experience:checked ~ .content-card .panel-experience,
+#tab-projects:checked ~ .content-card .panel-projects,
+#tab-skills:checked ~ .content-card .panel-skills,
+#tab-education:checked ~ .content-card .panel-education {
+  display: block;
+}
+
+/* Selected tab styling. */
+#tab-overview:checked ~ .content-card .tab-overview-label,
+#tab-experience:checked ~ .content-card .tab-experience-label,
+#tab-projects:checked ~ .content-card .tab-projects-label,
+#tab-skills:checked ~ .content-card .tab-skills-label,
+#tab-education:checked ~ .content-card .tab-education-label {
+  color: var(--text);
+}
+
+#tab-overview:checked ~ .content-card .tab-overview-label::after,
+#tab-experience:checked ~ .content-card .tab-experience-label::after,
+#tab-projects:checked ~ .content-card .tab-projects-label::after,
+#tab-skills:checked ~ .content-card .tab-skills-label::after,
+#tab-education:checked ~ .content-card .tab-education-label::after {
+  background: var(--accent);
+}
+
+/* Keyboard focus remains visible even though the inputs are visually hidden. */
+#tab-overview:focus-visible ~ .content-card .tab-overview-label,
+#tab-experience:focus-visible ~ .content-card .tab-experience-label,
+#tab-projects:focus-visible ~ .content-card .tab-projects-label,
+#tab-skills:focus-visible ~ .content-card .tab-skills-label,
+#tab-education:focus-visible ~ .content-card .tab-education-label,
+#theme-control:focus-visible ~ .content-card .theme-toggle {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* CSS-only light theme. It resets after a page refresh. */
+.portfolio-shell:has(#theme-control:checked),
+body:has(#theme-control:checked) {
+  --bg: #eef4f7;
+  --surface: rgba(255,255,255,.94);
+  --surface-strong: #ffffff;
+  --surface-soft: #f4f8fa;
+  --border: #cbd9df;
+  --border-strong: #9fb7c2;
+  --text: #11212c;
+  --muted: #536b78;
+  --faint: #718995;
+  --accent: #168f94;
+  --accent-strong: #087b80;
+  --accent-soft: rgba(22,143,148,.12);
+  --shadow: 0 20px 60px rgba(37,65,79,.12);
+}
+
+/* :has() lets the hidden checkbox theme the whole page. */
+body:has(#theme-control:checked) {
+  color: var(--text);
+  background: var(--bg);
+}
+
+body:has(#theme-control:checked) .profile-card,
+body:has(#theme-control:checked) .content-card,
+body:has(#theme-control:checked) .tab-header {
+  background: var(--surface);
+}
+
+body:has(#theme-control:checked) .background-grid {
+  opacity: .35;
+}
+
+body:has(#theme-control:checked) .theme-toggle {
+  transform: rotate(180deg);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,20 +60,28 @@
       </div>
     </aside>
 
+    <!-- CSS-only tab and theme controls -->
+    <input class="visually-hidden tab-control" type="radio" name="portfolio-tab" id="tab-overview" checked>
+    <input class="visually-hidden tab-control" type="radio" name="portfolio-tab" id="tab-experience">
+    <input class="visually-hidden tab-control" type="radio" name="portfolio-tab" id="tab-projects">
+    <input class="visually-hidden tab-control" type="radio" name="portfolio-tab" id="tab-skills">
+    <input class="visually-hidden tab-control" type="radio" name="portfolio-tab" id="tab-education">
+    <input class="visually-hidden theme-control" type="checkbox" id="theme-control">
+
     <section class="content-card">
       <header class="tab-header">
-        <nav class="tab-list" aria-label="Portfolio sections" role="tablist">
-          <button class="tab-button active" id="tab-about" role="tab" aria-selected="true" aria-controls="panel-about" data-tab="about">Overview</button>
-          <button class="tab-button" id="tab-experience" role="tab" aria-selected="false" aria-controls="panel-experience" data-tab="experience">Experience</button>
-          <button class="tab-button" id="tab-projects" role="tab" aria-selected="false" aria-controls="panel-projects" data-tab="projects">Projects</button>
-          <button class="tab-button" id="tab-skills" role="tab" aria-selected="false" aria-controls="panel-skills" data-tab="skills">Skills</button>
-          <button class="tab-button" id="tab-education" role="tab" aria-selected="false" aria-controls="panel-education" data-tab="education">Education</button>
+        <nav class="tab-list" aria-label="Portfolio sections">
+          <label class="tab-button tab-overview-label" for="tab-overview">Overview</label>
+          <label class="tab-button tab-experience-label" for="tab-experience">Experience</label>
+          <label class="tab-button tab-projects-label" for="tab-projects">Projects</label>
+          <label class="tab-button tab-skills-label" for="tab-skills">Skills</label>
+          <label class="tab-button tab-education-label" for="tab-education">Education</label>
         </nav>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">◐</button>
+        <label class="theme-toggle" for="theme-control" aria-label="Toggle light and dark theme" title="Toggle theme">◐</label>
       </header>
 
       <div class="panels">
-        <section class="tab-panel active" id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-panel="about">
+        <section class="tab-panel panel-overview" id="panel-overview">
           <header class="panel-heading compact-heading">
             <p class="eyebrow">Professional overview</p>
             <h2>Selected impact and technical focus</h2>
@@ -94,7 +102,7 @@
             </article>
             <article class="metric-card">
               <strong>4.0</strong>
-              <span>Master of Science in Electrical Engineering GPA <br> ASU</span>
+              <span>Graduate GPA  <br> @ ASU</span>
             </article>
           </div>
 
@@ -120,7 +128,7 @@
           </section>
         </section>
 
-        <section class="tab-panel" id="panel-experience" role="tabpanel" aria-labelledby="tab-experience" data-panel="experience" hidden>
+        <section class="tab-panel panel-experience" id="panel-experience">
           <header class="panel-heading">
             <p class="eyebrow">Experience</p>
             <h2>Industry execution supported by research and teaching.</h2>
@@ -189,7 +197,7 @@
           </div>
         </section>
 
-        <section class="tab-panel" id="panel-projects" role="tabpanel" aria-labelledby="tab-projects" data-panel="projects" hidden>
+        <section class="tab-panel panel-projects" id="panel-projects">
           <header class="panel-heading">
             <p class="eyebrow">Selected work</p>
             <h2>Projects spanning transport physics, semiconductor modeling, and VLSI.</h2>
@@ -201,7 +209,7 @@
               <div class="project-body">
                 <div class="tag-row"><span>MATLAB</span><span>Monte Carlo</span><span>Transport</span></div>
                 <h3>Bulk Silicon Monte Carlo Simulator with EES</h3>
-                <p>Developed a MATLAB bulk-silicon Monte Carlo simulator incorporating phonon and two-particle electron–electron scattering to study steady-state drift velocity, carrier energy, and electron distribution functions under an applied electric field.</p>
+                <p>Developed a MATLAB bulk-silicon Monte Carlo simulator incorporating phonon scattering and two-particle electron–electron scattering to study steady-state drift velocity, carrier energy, and electron distribution functions under an applied electric field.</p>
                 <!-- Replace the URL below with the exact repository URL. -->
                 <a class="project-link" href="https://github.com/ra5enagn/Bulk-Monte-Carlo-EES" target="_blank" rel="noopener noreferrer">View repository <span>↗</span></a>
               </div>
@@ -255,7 +263,7 @@
           <p class="project-note">Project links open the corresponding GitHub repositories. The Integrate-and-Fire Neuron currently links to the main GitHub profile until a dedicated repository is available.</p>
         </section>
 
-        <section class="tab-panel" id="panel-skills" role="tabpanel" aria-labelledby="tab-skills" data-panel="skills" hidden>
+        <section class="tab-panel panel-skills" id="panel-skills">
           <header class="panel-heading">
             <p class="eyebrow">Technical skills</p>
             <h2>Tools used across foundry operations, VLSI, and device simulation.</h2>
@@ -281,7 +289,7 @@
           </div>
         </section>
 
-        <section class="tab-panel" id="panel-education" role="tabpanel" aria-labelledby="tab-education" data-panel="education" hidden>
+        <section class="tab-panel panel-education" id="panel-education">
           <header class="panel-heading">
             <p class="eyebrow">Education</p>
             <h2>Electrical engineering grounded in devices, VLSI, and computation.</h2>
@@ -318,12 +326,11 @@
       </div>
 
       <footer class="content-footer">
-        <span>© <span id="year"></span> Bhargav Nallan Chakravartula</span>
+        <span>© 2026 Bhargav Nallan Chakravartula</span>
         <span>Built for GitHub Pages</span>
       </footer>
     </section>
   </main>
 
-  <script src="script.js"></script>
 </body>
 </html>
